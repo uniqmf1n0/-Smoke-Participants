@@ -1,0 +1,2373 @@
+{
+	"info": {
+		"_postman_id": "876c778e-eecf-4201-939e-b1940c2f8b34",
+		"name": "SOPKA\\Participants",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"login\" : \"{{login}}\",\r\n \"password\" : \"{{password}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/account/login/",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"login\" : \"{{login}}\",\r\n \"password\" : \"{{password}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/account/login/",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+							"});",
+							"",
+							"pm.environment.set(\"partId\", pm.response.json().id);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e02503f-b25b-44a6-a843-0958be773476",
+						"exec": [
+							"var fullname = \"TA Participant \" + _.random(10000, 99999);",
+							"pm.environment.set(\"fullname\",fullname);",
+							"",
+							"var ip = \"\";",
+							"ip += _.random(1, 254) + \".\" + _.random(0, 254) + \".\" + _.random(0, 254) + \".\" + _.random(0, 254);",
+							"pm.environment.set(\"operIp\",ip);",
+							"",
+							"var bin = _.random(100000, 999999);",
+							"pm.environment.set(\"bin\",bin);",
+							"",
+							"var email = \"test\";",
+							"email += _.random(100000, 999999) + \"@mail.ru\";",
+							"pm.environment.set(\"email\",email);",
+							"",
+							"var bik = _.random(100000000, 999999999);",
+							"pm.environment.set(\"bik\",bik);",
+							"",
+							"var number = _.random(100000, 999999);",
+							"pm.environment.set(\"regNumber\",number);",
+							"",
+							"var inn = \"5200\";",
+							"    ",
+							"    var nn = \"\";",
+							"    var n = _.random(0, 9);",
+							"    nn += n;",
+							"    ",
+							"    var sum1 = 18;",
+							"    sum1 += n*5;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*9;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*4;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*6;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*8;",
+							"    nn += n;",
+							"    ",
+							"    var sum = Math.trunc(sum1/11);",
+							"        sum *= 11;",
+							"        ",
+							"        var c = sum1-sum;",
+							"        if (c == 10) c = 0;",
+							"inn += nn + c;",
+							"pm.environment.set(\"inn\",inn);",
+							"",
+							"var kpp = _.random(100000000, 999999999);",
+							"pm.environment.set(\"kpp\",kpp);",
+							"",
+							"var ogrn = \"1187746\";",
+							"    n = _.random(10000, 99999);",
+							"ogrn += n;",
+							"    var ogrnN = Number(ogrn);",
+							"    c = ogrnN % 11;",
+							"    if (c == 10) c = 0;",
+							"ogrn += c;",
+							"pm.environment.set(\"ogrn\",ogrn);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n   \"ip\":[  \r\n\r\n   ],\r\n   \"mainTelecomOperators\":[  \r\n\r\n   ],\r\n   \"backupTelecomOperators\":[  \r\n\r\n   ],\r\n   \"systemTypes\":[  \r\n      \"geo\",\r\n      \"svtArt\"\r\n   ],\r\n   \"users\":[  \r\n\r\n   ],\r\n   \"participantImportance\":\"medium\",\r\n   \"isActive\":false,\r\n   \"isps\":[  \r\n      {  \r\n         \"name\":\"Tele2 (Теле2)\",\r\n         \"id\":\"3b8b0cec-30e2-4aef-be3e-9da923074f9e\",\r\n         \"ips\":[  \r\n            \"{{operIp}}\"\r\n         ]\r\n      }\r\n   ],\r\n   \"bins\":[  \r\n      \"{{bin}}\"\r\n   ],\r\n   \"emails\":[  \r\n      \"{{email}}\"\r\n   ],\r\n   \"additionalBiks\":[  \r\n      \r\n   ],\r\n   \"fullName\":\"{{fullname}}\",\r\n   \"importance\":\"medium\",\r\n   \"incomingEmail\":\"{{email}}\",\r\n   \"kind\":\"ko\",\r\n   \"organizationType\":\"NBO\",\r\n   \"informationExchangeType\":\"participant\",\r\n   \"registrationNumber\":\"{{regNumber}}\",\r\n   \"inn\":\"{{inn}}\",\r\n   \"kpp\":\"{{kpp}}\",\r\n   \"ogrn\":\"{{ogrn}}\",\r\n   \"objectCategory\":\"dff0cadd-15bf-4f6d-af0a-f41adb40608f\",\r\n   \"systemCategory\":\"medium\",\r\n   \"bik\":\"{{bik}}\",\r\n   \"criticalInformationInfrastructureObjectId\":\"New KII\",\r\n   \"brand\":\"AT\",\r\n   \"shortName\":\"{{fullname}}\",\r\n   \"legalEntityForm\":\"09262f38-9fdb-40e8-ae9a-a0daee972c71\",\r\n   \"software\":[  \r\n\r\n   ],\r\n   \"sector\":\"bfe0029e-61ed-485b-a94e-70a72c012c97\",\r\n   \"objectTypes\":[  \r\n      \"f40ad8d5-745c-4914-aedf-08a75c49abcb\"\r\n   ],\r\n   \"informationTypes\":[  \r\n      \"f562119c-2879-4850-9b37-8370ce37953d\",\r\n      \"39612f72-2026-4a92-b245-87b113944dc5\"\r\n   ],\r\n   \"processedInformationTypes\":[  \r\n      \"39612f72-2026-4a92-b245-87b113944dc5\",\r\n      \"82b3c1e0-f84f-45d0-950d-d79f42a62413\"\r\n   ],\r\n   \"legalAddress\":{  \r\n      \"district\":\"\",\r\n      \"street\":\"\",\r\n      \"fiasId\":\"3d9d0557-c035-4fe7-9cc1-0884eba98ff9\",\r\n      \"fiasAddress\":{  \r\n         \"district\":{  \r\n            \"parentId\":\"0c5b2444-70a0-4932-980c-b4dc0d3f02b5\",\r\n            \"level\":\"District\",\r\n            \"zipCode\":null,\r\n            \"oktmo\":\"45945000\",\r\n            \"reg\":77,\r\n            \"uniqueId\":\"bfaca6a7-9edd-4971-ab9b-9f3cef900f9f\",\r\n            \"id\":\"3d9d0557-c035-4fe7-9cc1-0884eba98ff9\",\r\n            \"name\":\"п Киевский\"\r\n         }\r\n      },\r\n      \"country\":{  \r\n         \"id\":\"RU\",\r\n         \"fullName\":\"Российская Федерация\",\r\n         \"shortName\":\"РОССИЯ\",\r\n         \"code3\":\"RUS\",\r\n         \"codeInt\":643,\r\n         \"versionInfo\":{  \r\n            \"etag\":1,\r\n            \"lastModified\":\"2018-05-15T14:40:28.05177+00:00\"\r\n         },\r\n         \"name\":\"Российская Федерация\",\r\n         \"_isHidden\":false,\r\n         \"_checked\":false,\r\n         \"_selected\":true\r\n      },\r\n      \"federalDistrict\":{  \r\n         \"federalDistrictId\":\"Central\",\r\n         \"versionInfo\":{  \r\n            \"etag\":1,\r\n            \"lastModified\":\"2018-05-15T14:40:28.05177+00:00\"\r\n         },\r\n         \"id\":\"ccc0ac84-51a2-450d-a0e0-b6ec1bb0ac35\",\r\n         \"name\":\"Центральный федеральный округ\",\r\n         \"_isHidden\":false,\r\n         \"_checked\":false,\r\n         \"_selected\":true\r\n      },\r\n      \"subjectOfFederation\":{  \r\n         \"parentId\":null,\r\n         \"level\":\"Region\",\r\n         \"zipCode\":null,\r\n         \"oktmo\":\"45000000\",\r\n         \"reg\":77,\r\n         \"uniqueId\":\"5c8b06f1-518e-496e-b683-7bf917e0d70b\",\r\n         \"id\":\"0c5b2444-70a0-4932-980c-b4dc0d3f02b5\",\r\n         \"name\":\"г Москва\"\r\n      }\r\n   },\r\n   \"postAddress\":{  \r\n      \"fiasAddress\":{  \r\n\r\n      },\r\n      \"country\":{  \r\n         \"id\":\"AB\",\r\n         \"fullName\":\"Республика Абхазия\",\r\n         \"shortName\":\"АБХАЗИЯ\",\r\n         \"code3\":\"ABH\",\r\n         \"codeInt\":895,\r\n         \"versionInfo\":{  \r\n            \"etag\":1,\r\n            \"lastModified\":\"2018-05-15T14:40:28.05177+00:00\"\r\n         },\r\n         \"name\":\"Республика Абхазия\",\r\n         \"_isHidden\":false,\r\n         \"_checked\":false,\r\n         \"_selected\":true\r\n      }\r\n   },\r\n   \"physicalAddresses\":[  \r\n      {  \r\n         \"fiasAddress\":{  \r\n\r\n         },\r\n         \"country\":{  \r\n            \"id\":\"AB\",\r\n            \"fullName\":\"Республика Абхазия\",\r\n            \"shortName\":\"АБХАЗИЯ\",\r\n            \"code3\":\"ABH\",\r\n            \"codeInt\":895,\r\n            \"versionInfo\":{  \r\n               \"etag\":1,\r\n               \"lastModified\":\"2018-05-15T14:40:28.05177+00:00\"\r\n            },\r\n            \"name\":\"Республика Абхазия\",\r\n            \"_isHidden\":false,\r\n            \"_checked\":false,\r\n            \"_selected\":true\r\n         }\r\n      }\r\n   ]\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"pm.environment.set(\"partTotal\", pm.response.json().total);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCreated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"//--------------------------------------------------------------",
+							"",
+							"pm.test(\"Request ID = Responce ID\", function () ",
+							"    {",
+							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
+							"});",
+							"",
+							"pm.test(\"Participant is not active\", function () ",
+							"    {",
+							"    pm.expect(false).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncGetCreated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"pm.test(\"Request ID = Responce ID\", function () ",
+							"    {",
+							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
+							"});",
+							"    ",
+							"pm.test(\"Participant is not active\", function () ",
+							"    {",
+							"    pm.expect(false).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFilter(active ones)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"var total = pm.response.json().total;",
+							"",
+							"pm.test(\"Filter is OK\", function () {",
+							"    for (var i = 0; i < total; i++)",
+							"        pm.expect(true).to.equal(pm.response.json().items[i].isActive);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants?activeStatus=onlyActive",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants"
+					],
+					"query": [
+						{
+							"key": "activeStatus",
+							"value": "onlyActive"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFilter(inactive ones)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"var total = pm.response.json().total;",
+							"",
+							"var prop = true;",
+							"",
+							"pm.test(\"Filter is OK\", function () {",
+							"    for (var i = 0; i < total; i++)",
+							"        pm.expect(false).to.equal(pm.response.json().items[i].isActive);",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants?activeStatus=onlyDeactivated",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants"
+					],
+					"query": [
+						{
+							"key": "activeStatus",
+							"value": "onlyDeactivated"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFilter(all)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"var total = pm.response.json().total;",
+							"",
+							"pm.test(\"Filter is OK\", function () {",
+							"    pm.expect(pm.environment.get(\"partTotal\")).to.equal(total);",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchByName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"pm.test(\"Object is unique\", function () ",
+							"    {",
+							"    pm.expect(1).to.equal(pm.response.json().total)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants?searchQuery={{fullname}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants"
+					],
+					"query": [
+						{
+							"key": "searchQuery",
+							"value": "{{fullname}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchByRegNumber",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"pm.test(\"Object is unique\", function () ",
+							"    {",
+							"    pm.expect(1).to.equal(pm.response.json().total)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants?searchQuery={{regNumber}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants"
+					],
+					"query": [
+						{
+							"key": "searchQuery",
+							"value": "{{regNumber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchByBIK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"pm.test(\"Object is unique\", function () ",
+							"    {",
+							"    pm.expect(1).to.equal(pm.response.json().total)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants?searchQuery={{bik}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants"
+					],
+					"query": [
+						{
+							"key": "searchQuery",
+							"value": "{{bik}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+							"});",
+							"",
+							"pm.environment.set(\"userId\", pm.response.json().id);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e02503f-b25b-44a6-a843-0958be773476",
+						"exec": [
+							"var LKU = \"\";",
+							"    var smallCharPos = \"abcdefghijklmnopqrstuvwxyz\";",
+							"    var bigCharPos = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";",
+							"    var numberPos = \"0123456789\";",
+							"    ",
+							"    for (var i = 0; i < 3; i++)",
+							"        LKU += smallCharPos.charAt(Math.floor(Math.random() * smallCharPos.length));",
+							"        ",
+							"    for (var i = 0; i < 3; i++)",
+							"        LKU += bigCharPos.charAt(Math.floor(Math.random() * bigCharPos.length));",
+							"    ",
+							"    for (var i = 0; i < 2; i++)",
+							"        LKU += numberPos.charAt(Math.floor(Math.random() * numberPos.length));",
+							"        ",
+							"pm.environment.set(\"LKU_login\", LKU);",
+							"",
+							"var email = \"test\";",
+							"email += _.random(100000, 999999) + \"@mail.ru\";",
+							"pm.environment.set(\"LKU_email\",email);",
+							"",
+							"var phone = \"9\";",
+							"    for (var i = 0; i < 9; i++)",
+							"        phone += _.random(0, 9);",
+							"pm.environment.set(\"phone\",phone);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n   \"isActive\":true,\r\n   \"permission\":\"administrator\",\r\n   \"canLockCorrespondentAccount\":true,\r\n   \"lastName\":\"Test\",\r\n   \"firstName\":\"Automation\",\r\n   \"middleName\": \"{{LKU_login}}\",\r\n   \"position\":\"TA Boss\",\r\n   \"login\":\"{{LKU_login}}\",\r\n   \"password\":\"{{LKU_login}}\",\r\n   \"email\":\"{{LKU_email}}\",\r\n   \"landlineNumber\":\"{{phone}}\",\r\n   \"mobileNumber\":\"{{phone}}\",\r\n   \"category\":\"4696e64c-8bd4-4e54-aad7-2ed36f8ca7d5\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/users",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users/get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/users/{{userId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncUsers/get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/participants/{{partId}}/users/{{userId}}",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users/getList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/users/{{userId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/sendCredentials (negative)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
+						"exec": [
+							"pm.test(\"Credentials are not sent\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([400,401]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e02503f-b25b-44a6-a843-0958be773476",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/users/{{userId}}/sendCredentials",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}",
+						"sendCredentials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/login (negative)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"User is deactivated\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([401]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"login\" : \"{{LKU_login}}\",\r\n \"password\" : \"{{LKU_login}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{lku}}{{ver}}/account/login/",
+					"host": [
+						"{{lku}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "activate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e02503f-b25b-44a6-a843-0958be773476",
+						"exec": [
+							"var fullname = \"TA Participant \" + _.random(10000, 99999);",
+							"pm.environment.set(\"fullname\",fullname);",
+							"",
+							"var shortname = \"TA Participant\";",
+							"pm.environment.set(\"shortname\",shortname);",
+							"",
+							"var ip = \"\";",
+							"ip += _.random(1, 254) + \".\" + _.random(0, 254) + \".\" + _.random(0, 254) + \".\" + _.random(0, 254);",
+							"pm.environment.set(\"operIp\",ip);",
+							"",
+							"var bin = _.random(100000, 999999);",
+							"pm.environment.set(\"bin\",bin);",
+							"",
+							"var email = \"test\";",
+							"email += _.random(100000, 999999) + \"@mail.ru\";",
+							"pm.environment.set(\"email\",email);",
+							"",
+							"var bik = _.random(100000000, 999999999);",
+							"pm.environment.set(\"bik\",bik);",
+							"",
+							"var number = _.random(100000, 999999);",
+							"pm.environment.set(\"regNumber\",number);",
+							"",
+							"var inn = \"5200\";",
+							"    ",
+							"    var nn = \"\";",
+							"    var n = _.random(0, 9);",
+							"    nn += n;",
+							"    ",
+							"    var sum1 = 18;",
+							"    sum1 += n*5;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*9;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*4;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*6;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*8;",
+							"    nn += n;",
+							"    ",
+							"    var sum = Math.trunc(sum1/11);",
+							"        sum *= 11;",
+							"        ",
+							"        var c = sum1-sum;",
+							"        if (c == 10) c = 0;",
+							"inn += nn + c;",
+							"pm.environment.set(\"inn\",inn);",
+							"",
+							"var kpp = _.random(100000000, 999999999);",
+							"pm.environment.set(\"kpp\",kpp);",
+							"",
+							"var ogrn = \"1187746\";",
+							"    n = _.random(10000, 99999);",
+							"ogrn += n;",
+							"    var ogrnN = Number(ogrn);",
+							"    c = ogrnN % 11;",
+							"    if (c == 10) c = 0;",
+							"ogrn += c;",
+							"pm.environment.set(\"ogrn\",ogrn);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/activate",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "activationValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"//--------------------------------------------------------------",
+							"",
+							"pm.test(\"Request ID = Responce ID\", function () ",
+							"    {",
+							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
+							"});",
+							"",
+							"pm.test(\"Participant is active\", function () ",
+							"    {",
+							"    pm.expect(true).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncActivationValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"//--------------------------------------------------------------",
+							"",
+							"pm.test(\"Request ID = Responce ID\", function () ",
+							"    {",
+							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
+							"});",
+							"",
+							"pm.test(\"Participant is active\", function () ",
+							"    {",
+							"    pm.expect(true).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/sendCredentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
+						"exec": [
+							"pm.test(\"Credentials are sent\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e02503f-b25b-44a6-a843-0958be773476",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/users/{{userId}}/sendCredentials",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}",
+						"sendCredentials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"login\" : \"{{LKU_login}}\",\r\n \"password\" : \"{{LKU_login}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{lku}}{{ver}}/account/login/",
+					"host": [
+						"{{lku}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/deactivate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"User is deactivated\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/users/{{userId}}/deactivate",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users/deactivationValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"pm.test(\"User is not active\", function () ",
+							"    {",
+							"    pm.expect(false).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/users/{{userId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncUsers/deactivationValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"pm.test(\"User is not active\", function () ",
+							"    {",
+							"    pm.expect(false).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/participants/{{partId}}/users/{{userId}}",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/sendCredentials (negative)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
+						"exec": [
+							"pm.test(\"Credentials are not sent\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([400,401]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e02503f-b25b-44a6-a843-0958be773476",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/users/{{userId}}/sendCredentials",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}",
+						"sendCredentials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/login (negative)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"User is deactivated\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([401]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"login\" : \"{{LKU_login}}\",\r\n \"password\" : \"{{LKU_login}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{lku}}{{ver}}/account/login/",
+					"host": [
+						"{{lku}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/activate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"User is deactivated\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/users/{{userId}}/activate",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"users",
+						"{{userId}}",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"login\" : \"{{LKU_login}}\",\r\n \"password\" : \"{{LKU_login}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{lku}}{{ver}}/account/login/",
+					"host": [
+						"{{lku}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deactivate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e02503f-b25b-44a6-a843-0958be773476",
+						"exec": [
+							"var fullname = \"TA Participant \" + _.random(10000, 99999);",
+							"pm.environment.set(\"fullname\",fullname);",
+							"",
+							"var shortname = \"TA Participant\";",
+							"pm.environment.set(\"shortname\",shortname);",
+							"",
+							"var ip = \"\";",
+							"ip += _.random(1, 254) + \".\" + _.random(0, 254) + \".\" + _.random(0, 254) + \".\" + _.random(0, 254);",
+							"pm.environment.set(\"operIp\",ip);",
+							"",
+							"var bin = _.random(100000, 999999);",
+							"pm.environment.set(\"bin\",bin);",
+							"",
+							"var email = \"test\";",
+							"email += _.random(100000, 999999) + \"@mail.ru\";",
+							"pm.environment.set(\"email\",email);",
+							"",
+							"var bik = _.random(100000000, 999999999);",
+							"pm.environment.set(\"bik\",bik);",
+							"",
+							"var number = _.random(100000, 999999);",
+							"pm.environment.set(\"regNumber\",number);",
+							"",
+							"var inn = \"5200\";",
+							"    ",
+							"    var nn = \"\";",
+							"    var n = _.random(0, 9);",
+							"    nn += n;",
+							"    ",
+							"    var sum1 = 18;",
+							"    sum1 += n*5;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*9;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*4;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*6;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*8;",
+							"    nn += n;",
+							"    ",
+							"    var sum = Math.trunc(sum1/11);",
+							"        sum *= 11;",
+							"        ",
+							"        var c = sum1-sum;",
+							"        if (c == 10) c = 0;",
+							"inn += nn + c;",
+							"pm.environment.set(\"inn\",inn);",
+							"",
+							"var kpp = _.random(100000000, 999999999);",
+							"pm.environment.set(\"kpp\",kpp);",
+							"",
+							"var ogrn = \"1187746\";",
+							"    n = _.random(10000, 99999);",
+							"ogrn += n;",
+							"    var ogrnN = Number(ogrn);",
+							"    c = ogrnN % 11;",
+							"    if (c == 10) c = 0;",
+							"ogrn += c;",
+							"pm.environment.set(\"ogrn\",ogrn);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n   \"ip\":[  \r\n\r\n   ],\r\n   \"mainTelecomOperators\":[  \r\n\r\n   ],\r\n   \"backupTelecomOperators\":[  \r\n\r\n   ],\r\n   \"systemTypes\":[  \r\n      \"geo\",\r\n      \"svtArt\"\r\n   ],\r\n   \"users\":[  \r\n\r\n   ],\r\n   \"participantImportance\":\"medium\",\r\n   \"isActive\":false,\r\n   \"isps\":[  \r\n      {  \r\n         \"name\":\"Tele2 (Теле2)\",\r\n         \"id\":\"3b8b0cec-30e2-4aef-be3e-9da923074f9e\",\r\n         \"ips\":[  \r\n            \"{{operIp}}\"\r\n         ]\r\n      }\r\n   ],\r\n   \"bins\":[  \r\n      \"{{bin}}\"\r\n   ],\r\n   \"emails\":[  \r\n      \"{{email}}\"\r\n   ],\r\n   \"additionalBiks\":[  \r\n      \r\n   ],\r\n   \"fullName\":\"{{fullname}}\",\r\n   \"importance\":\"medium\",\r\n   \"incomingEmail\":\"{{email}}\",\r\n   \"kind\":\"ko\",\r\n   \"organizationType\":\"NBO\",\r\n   \"informationExchangeType\":\"participant\",\r\n   \"registrationNumber\":\"{{regNumber}}\",\r\n   \"inn\":\"{{inn}}\",\r\n   \"kpp\":\"{{kpp}}\",\r\n   \"ogrn\":\"{{ogrn}}\",\r\n   \"objectCategory\":\"dff0cadd-15bf-4f6d-af0a-f41adb40608f\",\r\n   \"systemCategory\":\"medium\",\r\n   \"bik\":\"{{bik}}\",\r\n   \"criticalInformationInfrastructureObjectId\":\"New KII\",\r\n   \"brand\":\"AT\",\r\n   \"shortName\":\"{{shortname}}\",\r\n   \"legalEntityForm\":\"09262f38-9fdb-40e8-ae9a-a0daee972c71\",\r\n   \"software\":[  \r\n\r\n   ],\r\n   \"sector\":\"bfe0029e-61ed-485b-a94e-70a72c012c97\",\r\n   \"objectTypes\":[  \r\n      \"f40ad8d5-745c-4914-aedf-08a75c49abcb\"\r\n   ],\r\n   \"informationTypes\":[  \r\n      \"f562119c-2879-4850-9b37-8370ce37953d\",\r\n      \"39612f72-2026-4a92-b245-87b113944dc5\"\r\n   ],\r\n   \"processedInformationTypes\":[  \r\n      \"39612f72-2026-4a92-b245-87b113944dc5\",\r\n      \"82b3c1e0-f84f-45d0-950d-d79f42a62413\"\r\n   ],\r\n   \"legalAddress\":{  \r\n      \"district\":\"\",\r\n      \"street\":\"\",\r\n      \"fiasId\":\"3d9d0557-c035-4fe7-9cc1-0884eba98ff9\",\r\n      \"fiasAddress\":{  \r\n         \"district\":{  \r\n            \"parentId\":\"0c5b2444-70a0-4932-980c-b4dc0d3f02b5\",\r\n            \"level\":\"District\",\r\n            \"zipCode\":null,\r\n            \"oktmo\":\"45945000\",\r\n            \"reg\":77,\r\n            \"uniqueId\":\"bfaca6a7-9edd-4971-ab9b-9f3cef900f9f\",\r\n            \"id\":\"3d9d0557-c035-4fe7-9cc1-0884eba98ff9\",\r\n            \"name\":\"п Киевский\"\r\n         }\r\n      },\r\n      \"country\":{  \r\n         \"id\":\"RU\",\r\n         \"fullName\":\"Российская Федерация\",\r\n         \"shortName\":\"РОССИЯ\",\r\n         \"code3\":\"RUS\",\r\n         \"codeInt\":643,\r\n         \"versionInfo\":{  \r\n            \"etag\":1,\r\n            \"lastModified\":\"2018-05-15T14:40:28.05177+00:00\"\r\n         },\r\n         \"name\":\"Российская Федерация\",\r\n         \"_isHidden\":false,\r\n         \"_checked\":false,\r\n         \"_selected\":true\r\n      },\r\n      \"federalDistrict\":{  \r\n         \"federalDistrictId\":\"Central\",\r\n         \"versionInfo\":{  \r\n            \"etag\":1,\r\n            \"lastModified\":\"2018-05-15T14:40:28.05177+00:00\"\r\n         },\r\n         \"id\":\"ccc0ac84-51a2-450d-a0e0-b6ec1bb0ac35\",\r\n         \"name\":\"Центральный федеральный округ\",\r\n         \"_isHidden\":false,\r\n         \"_checked\":false,\r\n         \"_selected\":true\r\n      },\r\n      \"subjectOfFederation\":{  \r\n         \"parentId\":null,\r\n         \"level\":\"Region\",\r\n         \"zipCode\":null,\r\n         \"oktmo\":\"45000000\",\r\n         \"reg\":77,\r\n         \"uniqueId\":\"5c8b06f1-518e-496e-b683-7bf917e0d70b\",\r\n         \"id\":\"0c5b2444-70a0-4932-980c-b4dc0d3f02b5\",\r\n         \"name\":\"г Москва\"\r\n      }\r\n   },\r\n   \"postAddress\":{  \r\n      \"fiasAddress\":{  \r\n\r\n      },\r\n      \"country\":{  \r\n         \"id\":\"AB\",\r\n         \"fullName\":\"Республика Абхазия\",\r\n         \"shortName\":\"АБХАЗИЯ\",\r\n         \"code3\":\"ABH\",\r\n         \"codeInt\":895,\r\n         \"versionInfo\":{  \r\n            \"etag\":1,\r\n            \"lastModified\":\"2018-05-15T14:40:28.05177+00:00\"\r\n         },\r\n         \"name\":\"Республика Абхазия\",\r\n         \"_isHidden\":false,\r\n         \"_checked\":false,\r\n         \"_selected\":true\r\n      }\r\n   },\r\n   \"physicalAddresses\":[  \r\n      {  \r\n         \"fiasAddress\":{  \r\n\r\n         },\r\n         \"country\":{  \r\n            \"id\":\"AB\",\r\n            \"fullName\":\"Республика Абхазия\",\r\n            \"shortName\":\"АБХАЗИЯ\",\r\n            \"code3\":\"ABH\",\r\n            \"codeInt\":895,\r\n            \"versionInfo\":{  \r\n               \"etag\":1,\r\n               \"lastModified\":\"2018-05-15T14:40:28.05177+00:00\"\r\n            },\r\n            \"name\":\"Республика Абхазия\",\r\n            \"_isHidden\":false,\r\n            \"_checked\":false,\r\n            \"_selected\":true\r\n         }\r\n      }\r\n   ]\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/deactivate",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deactivationValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"//--------------------------------------------------------------",
+							"",
+							"pm.test(\"Request ID = Responce ID\", function () ",
+							"    {",
+							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
+							"});",
+							"",
+							"pm.test(\"Participant is not active\", function () ",
+							"    {",
+							"    pm.expect(false).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncDeactivationValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"//--------------------------------------------------------------",
+							"",
+							"pm.test(\"Request ID = Responce ID\", function () ",
+							"    {",
+							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
+							"});",
+							"",
+							"pm.test(\"Participant is not active\", function () ",
+							"    {",
+							"    pm.expect(false).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/login (negative)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"User is deactivated\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([401]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"login\" : \"{{LKU_login}}\",\r\n \"password\" : \"{{LKU_login}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{lku}}{{ver}}/account/login/",
+					"host": [
+						"{{lku}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "activate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e02503f-b25b-44a6-a843-0958be773476",
+						"exec": [
+							"var fullname = \"TA Participant \" + _.random(10000, 99999);",
+							"pm.environment.set(\"fullname\",fullname);",
+							"",
+							"var shortname = \"TA Participant\";",
+							"pm.environment.set(\"shortname\",shortname);",
+							"",
+							"var ip = \"\";",
+							"ip += _.random(1, 254) + \".\" + _.random(0, 254) + \".\" + _.random(0, 254) + \".\" + _.random(0, 254);",
+							"pm.environment.set(\"operIp\",ip);",
+							"",
+							"var bin = _.random(100000, 999999);",
+							"pm.environment.set(\"bin\",bin);",
+							"",
+							"var email = \"test\";",
+							"email += _.random(100000, 999999) + \"@mail.ru\";",
+							"pm.environment.set(\"email\",email);",
+							"",
+							"var bik = _.random(100000000, 999999999);",
+							"pm.environment.set(\"bik\",bik);",
+							"",
+							"var number = _.random(100000, 999999);",
+							"pm.environment.set(\"regNumber\",number);",
+							"",
+							"var inn = \"5200\";",
+							"    ",
+							"    var nn = \"\";",
+							"    var n = _.random(0, 9);",
+							"    nn += n;",
+							"    ",
+							"    var sum1 = 18;",
+							"    sum1 += n*5;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*9;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*4;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*6;",
+							"    nn += n;",
+							"    n = _.random(0, 9);",
+							"    sum1 += n*8;",
+							"    nn += n;",
+							"    ",
+							"    var sum = Math.trunc(sum1/11);",
+							"        sum *= 11;",
+							"        ",
+							"        var c = sum1-sum;",
+							"        if (c == 10) c = 0;",
+							"inn += nn + c;",
+							"pm.environment.set(\"inn\",inn);",
+							"",
+							"var kpp = _.random(100000000, 999999999);",
+							"pm.environment.set(\"kpp\",kpp);",
+							"",
+							"var ogrn = \"1187746\";",
+							"    n = _.random(10000, 99999);",
+							"ogrn += n;",
+							"    var ogrnN = Number(ogrn);",
+							"    c = ogrnN % 11;",
+							"    if (c == 10) c = 0;",
+							"ogrn += c;",
+							"pm.environment.set(\"ogrn\",ogrn);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/activate",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "activationValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"//--------------------------------------------------------------",
+							"",
+							"pm.test(\"Request ID = Responce ID\", function () ",
+							"    {",
+							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
+							"});",
+							"",
+							"pm.test(\"Participant is active\", function () ",
+							"    {",
+							"    pm.expect(true).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncActivationValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"//--------------------------------------------------------------",
+							"",
+							"pm.test(\"Request ID = Responce ID\", function () ",
+							"    {",
+							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
+							"});",
+							"",
+							"pm.test(\"Participant is active\", function () ",
+							"    {",
+							"    pm.expect(true).to.equal(pm.response.json().isActive)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"login\" : \"{{LKU_login}}\",\r\n \"password\" : \"{{LKU_login}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{lku}}{{ver}}/account/login/",
+					"host": [
+						"{{lku}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "32c42fcf-ac61-4bb0-8517-2b45b8b221cb",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/account/logout",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncLogout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "32c42fcf-ac61-4bb0-8517-2b45b8b221cb",
+						"exec": [
+							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/account/logout",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "08dc5b97-7f2d-4df7-be86-bf21f9c5a22d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a483d806-bc69-484f-add5-dafa29580f37",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

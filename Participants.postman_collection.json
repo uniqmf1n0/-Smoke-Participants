@@ -13,7 +13,7 @@
 					"script": {
 						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Correct login\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"});"
 						],
@@ -57,7 +57,7 @@
 					"script": {
 						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Correct login\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"});"
 						],
@@ -101,7 +101,7 @@
 					"script": {
 						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
 						"exec": [
-							"pm.test(\"Successful POST request\", function () {",
+							"pm.test(\"Object is created\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});",
 							"",
@@ -214,7 +214,7 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"List is presented\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
@@ -261,17 +261,12 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Object exists\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
 							"",
 							"//--------------------------------------------------------------",
-							"",
-							"pm.test(\"Request ID = Responce ID\", function () ",
-							"    {",
-							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
-							"});",
 							"",
 							"pm.test(\"Participant is not active\", function () ",
 							"    {",
@@ -319,15 +314,11 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Object exists\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
 							"",
-							"pm.test(\"Request ID = Responce ID\", function () ",
-							"    {",
-							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
-							"});",
 							"    ",
 							"pm.test(\"Participant is not active\", function () ",
 							"    {",
@@ -375,7 +366,7 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"List is presented\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
@@ -433,7 +424,7 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"List is presented\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
@@ -494,7 +485,7 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"List is presented\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
@@ -546,7 +537,7 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"List is presented\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
@@ -602,7 +593,7 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"List is presented\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
@@ -658,7 +649,7 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"List is presented\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
@@ -714,7 +705,7 @@
 					"script": {
 						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
 						"exec": [
-							"pm.test(\"Successful POST request\", function () {",
+							"pm.test(\"Object is created\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});",
 							"",
@@ -793,9 +784,8 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
-							"    pm.response.to.be.ok; // проверка статуса",
-							"    pm.response.to.be.json; // проверка формата",
+							"pm.test(\"Object exists\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});",
 							""
 						],
@@ -842,9 +832,8 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
-							"    pm.response.to.be.ok; // проверка статуса",
-							"    pm.response.to.be.json; // проверка формата",
+							"pm.test(\"Object exists\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});",
 							""
 						],
@@ -891,9 +880,8 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
-							"    pm.response.to.be.ok; // проверка статуса",
-							"    pm.response.to.be.json; // проверка формата",
+							"pm.test(\"List is presented\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});",
 							""
 						],
@@ -1040,7 +1028,7 @@
 					"script": {
 						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
 						"exec": [
-							"pm.test(\"Successful POST request\", function () {",
+							"pm.test(\"Object is activated\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});"
 						],
@@ -1156,17 +1144,12 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Changes applied\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
 							"",
 							"//--------------------------------------------------------------",
-							"",
-							"pm.test(\"Request ID = Responce ID\", function () ",
-							"    {",
-							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
-							"});",
 							"",
 							"pm.test(\"Participant is active\", function () ",
 							"    {",
@@ -1214,17 +1197,12 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Changes applied\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
 							"",
 							"//--------------------------------------------------------------",
-							"",
-							"pm.test(\"Request ID = Responce ID\", function () ",
-							"    {",
-							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
-							"});",
 							"",
 							"pm.test(\"Participant is active\", function () ",
 							"    {",
@@ -1328,7 +1306,7 @@
 					"script": {
 						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Correct login\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"});"
 						],
@@ -1372,7 +1350,7 @@
 					"script": {
 						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
 						"exec": [
-							"pm.test(\"User is deactivated\", function () {",
+							"pm.test(\"Object is deactivated\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});"
 						],
@@ -1418,7 +1396,7 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Changes applied\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
@@ -1471,7 +1449,7 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Changes applied\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
@@ -1624,7 +1602,7 @@
 					"script": {
 						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
 						"exec": [
-							"pm.test(\"User is deactivated\", function () {",
+							"pm.test(\"Object is activated\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});"
 						],
@@ -1670,7 +1648,7 @@
 					"script": {
 						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Correct login\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"});"
 						],
@@ -1714,7 +1692,7 @@
 					"script": {
 						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
 						"exec": [
-							"pm.test(\"Successful POST request\", function () {",
+							"pm.test(\"Object is deactivated\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});"
 						],
@@ -1830,17 +1808,12 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Changes applied\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
 							"});",
 							"",
 							"//--------------------------------------------------------------",
-							"",
-							"pm.test(\"Request ID = Responce ID\", function () ",
-							"    {",
-							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
-							"});",
 							"",
 							"pm.test(\"Participant is not active\", function () ",
 							"    {",
@@ -1888,16 +1861,9 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Changes applied\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
-							"});",
-							"",
-							"//--------------------------------------------------------------",
-							"",
-							"pm.test(\"Request ID = Responce ID\", function () ",
-							"    {",
-							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
 							"});",
 							"",
 							"pm.test(\"Participant is not active\", function () ",
@@ -1990,7 +1956,7 @@
 					"script": {
 						"id": "2e263326-474f-4f9d-a897-6f4d20f059b4",
 						"exec": [
-							"pm.test(\"Successful POST request\", function () {",
+							"pm.test(\"Object is activated\", function () {",
 							"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
 							"});"
 						],
@@ -2106,16 +2072,9 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Changes applied\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
-							"});",
-							"",
-							"//--------------------------------------------------------------",
-							"",
-							"pm.test(\"Request ID = Responce ID\", function () ",
-							"    {",
-							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
 							"});",
 							"",
 							"pm.test(\"Participant is active\", function () ",
@@ -2164,16 +2123,9 @@
 					"script": {
 						"id": "0f7f9688-2bc5-4a58-beb4-d7dc25f740e1",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Changes applied\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"    pm.response.to.be.json; // проверка формата",
-							"});",
-							"",
-							"//--------------------------------------------------------------",
-							"",
-							"pm.test(\"Request ID = Responce ID\", function () ",
-							"    {",
-							"    pm.expect(pm.environment.get(\"partId\")).to.equal(pm.response.json().id)",
 							"});",
 							"",
 							"pm.test(\"Participant is active\", function () ",
@@ -2222,7 +2174,7 @@
 					"script": {
 						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Correct login\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"});"
 						],
@@ -2259,6 +2211,417 @@
 			"response": []
 		},
 		{
+			"name": "Equipment/create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Equipment is created\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"pm.environment.set(\"poId\",pm.response.json().id);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f8d8fa66-d1ea-40cb-9c24-2702ef0ec54f",
+						"exec": [
+							"var POname = \"TA Equipment \"",
+							"POname += _.random(10000, 99999);",
+							"pm.environment.set(\"poName\",POname);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\":\"os\",\n\t\"name\":\"{{poName}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/software",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"software"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Equipment/get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Changes applied\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"var lastEl = pm.response.json().software.length-1;",
+							"",
+							"pm.test(\"Equipment exists\", function () {",
+							"    pm.expect(pm.environment.get(\"poId\")).to.equal(pm.response.json().software[lastEl].id)",
+							"    pm.expect(pm.environment.get(\"poName\")).to.equal(pm.response.json().software[lastEl].name)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f8d8fa66-d1ea-40cb-9c24-2702ef0ec54f",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncEquipment/get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Changes applied\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"    pm.response.to.be.json; // проверка формата",
+							"});",
+							"",
+							"var lastEl = pm.response.json().software.length-1;",
+							"",
+							"pm.test(\"Equipment exists\", function () {",
+							"    pm.expect(pm.environment.get(\"poId\")).to.equal(pm.response.json().software[lastEl].id)",
+							"    pm.expect(pm.environment.get(\"poName\")).to.equal(pm.response.json().software[lastEl].name)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f8d8fa66-d1ea-40cb-9c24-2702ef0ec54f",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Equipment/delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Equipment is deleted\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f8d8fa66-d1ea-40cb-9c24-2702ef0ec54f",
+						"exec": [
+							"var POname = \"TA Equipment \"",
+							"POname += _.random(10000, 99999);",
+							"pm.environment.set(\"poName\",POname);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}/software/{{poId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}",
+						"software",
+						"{{poId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Equipment/deleteValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Changes applied\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});",
+							"",
+							"var countEl = pm.response.json().software.length;",
+							"",
+							"pm.test(\"Equipment does not exists\", function () {",
+							"    pm.expect(0).to.equal(countEl)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f8d8fa66-d1ea-40cb-9c24-2702ef0ec54f",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{url}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SyncEquipment/deleteValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Changes applied\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});",
+							"",
+							"var countEl = pm.response.json().software.length;",
+							"",
+							"pm.test(\"Equipment does not exists\", function () {",
+							"    pm.expect(0).to.equal(countEl)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f8d8fa66-d1ea-40cb-9c24-2702ef0ec54f",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLneighbour}}{{ver}}/participants/{{partId}}",
+					"host": [
+						"{{URLneighbour}}{{ver}}"
+					],
+					"path": [
+						"participants",
+						"{{partId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed7ef9f-1bc6-4071-b2e0-80a5e29ff765",
+						"exec": [
+							"pm.test(\"Correct logout\", function () {",
+							"    pm.response.to.be.ok; // проверка статуса",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{lku}}{{ver}}/account/logout",
+					"host": [
+						"{{lku}}{{ver}}"
+					],
+					"path": [
+						"account",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Logout",
 			"event": [
 				{
@@ -2266,7 +2629,7 @@
 					"script": {
 						"id": "32c42fcf-ac61-4bb0-8517-2b45b8b221cb",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Correct logout\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"});"
 						],
@@ -2308,7 +2671,7 @@
 					"script": {
 						"id": "32c42fcf-ac61-4bb0-8517-2b45b8b221cb",
 						"exec": [
-							"pm.test(\"Status is OK, Response is JSON\", function () {",
+							"pm.test(\"Correct logout\", function () {",
 							"    pm.response.to.be.ok; // проверка статуса",
 							"});"
 						],
